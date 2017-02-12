@@ -1,4 +1,4 @@
-한국어
+**Korean**
 
 RamG_Thunder는 Win32 실행 파일이다.
 
@@ -38,4 +38,33 @@ Stage 1,2,3,4,5에서 모든 분기를 변경해주었으니 이제 c.png 파일
 
 Flag : ThANk_yOu_my_PeOP1E
 
+**English**
 
+RamG_Thunder is a Win32 executable.
+
+When you run it, the suspicious calculator opens and receives input 1,2,3,0. However, if you type 4 here, you can see that you are going to the hidden menu.
+
+In the hidden menu, after stages 1 ~ 5, the values ​​are stored in file 'c'. Our goal is to guess how to read the c file by changing how the values are stored.
+
+Now let's see what we do from stage 1. Stage 1 compares input and key value of "4745947459" with key1 of user and compares them with "MVYLXYUARJ".
+
+The key1 to enter inside the if statement is 'yamyambugs'. (The intermediate IsDebuggerPresent can be easily bypassed to ret 0)
+
+In stage 5, we go on to act similar to stage 1. The key5 to enter inside the if statement is 'hellowfish'.
+
+I thought that only the key1 and key5 values ​​could be changed by the user. After completing this process, I saw the output 'c' file, but the png file was created with less recovery. I could see that there was something more left.
+
+Looking back at the binaries, we can see that stages 2, 3, and 4 also do something internally.
+
+First, in stage 2, we compare the return values ​​of the GetAdaptersInfo function with other values ​​and decide whether to go into the if statement. The GetAdaptersInfo function acts like Windows' ipconfig to get various network information. The if statement compares the IP address of the computer with the three digits of 200, 89, 120. I have to change the ip address in ollydbg in realtime because I feel like I need to make the value of if statement 0 and go inside the else statement.
+
+In Stage 3, after opening the "Hello" registry key of HKEY_CURRENT_USER, it tries to read "hellow_FishWorld" which is the string value of this key. If successful, it enters the if statement.
+
+Likewise, I made the keys through regedit to go inside the else statement.
+
+In Stage 4, it behaves the same as stage2. This time, change the ip to 0.12.41 ....
+
+Now that we have changed all the branches on stage 1, 2, 3, 4, and 5, we now have a c.png file.
+
+
+Flag : ThANk_yOu_my_PeOP1E
