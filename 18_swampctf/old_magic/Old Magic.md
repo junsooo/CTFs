@@ -1,7 +1,7 @@
 <h1>Old Magic</h1>
 
-[한국어](#한국어)<br>
-[English](#English)
+[한국어](#한국어)
+[English](#english)
 
 ### 한국어
 KAIST GoN의 이준수가 대회가 끝나고 나서 푼 문제이다.
