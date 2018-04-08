@@ -4,7 +4,7 @@
 [English](#english)
 
 ### 한국어
-KAIST GoN의 이준수가 대회가 끝나고 나서 푼 문제이다.
+KAIST GoN 짱짱
 
 gameboy 에뮬레이터로 실행할 수 있는 secret.gb 파일이 주어졌다.
 리버싱 문제이기 때문에 디버깅을 할 수 있는 bgb emulator를 사용하였다.
